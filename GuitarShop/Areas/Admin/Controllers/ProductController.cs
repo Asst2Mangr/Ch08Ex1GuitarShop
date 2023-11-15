@@ -42,11 +42,15 @@ namespace GuitarShop.Areas.Admin.Controllers
             }
 
             // use ViewBag to pass category data to view
-            ViewBag.Categories = categories;
-            ViewBag.SelectedCategoryName = id;
+            var model = new ProductListViewModel
+            {
+                Categories = categories,
+                Products = products,
+                SelectCategory = id
+            };
 
             // bind products to view
-            return View(products);
+            return View(model);
         }
 
         [HttpGet]
